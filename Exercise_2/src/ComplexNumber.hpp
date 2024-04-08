@@ -20,17 +20,10 @@ struct ComplexNumber
         return sqrt(re*re+im*im);
     }
 
-    bool is_equal(ComplexNumber& c2,double tol) // questo metodo fa l'== considerando la norma 2 della differenza tra i 2 numeri complessi pesata con la norma 2 del primo numero, tiene conto anche della tolleranza scelta dall'utente
+    bool is_equal(ComplexNumber& c2,double& tol) // questo metodo fa l'== considerando la norma 2 della differenza tra i 2 numeri complessi pesata con la norma 2 del primo numero, tiene conto anche della tolleranza scelta dall'utente
     {
         ComplexNumber diff(c2.re-this->re,c2.im-this->im);
-        if(diff.norm()/this->norm()<=tol)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return (diff.norm()/this->norm()<=tol);
     }
 
     ComplexNumber conjugate() //complesso coniugato

@@ -10,7 +10,7 @@ ostream& operator<<(ostream& os, const ComplexNumber& c)
     {
         os<<c.re<<c.im<<"i";
     }
-    else if(c.im==0) //l'ho messo come caso dato che se lo includo nel caso sopra, talvolta mi da problemi, scrivendo lo stesso re+-im i
+    else if(c.im==0) //l'ho messo come caso dato che, se lo includo nel caso sopra, talvolta mi da problemi, scrivendo lo stesso re+-0i
     {
         os<<c.re<<"+0i";
     }
@@ -29,12 +29,5 @@ ComplexNumber operator+(const ComplexNumber& c1,const ComplexNumber& c2)
 
 bool operator==(const ComplexNumber& c1,const ComplexNumber& c2) //fa l'== da definizione di uguaglianza tra numeri complessi
 {
-    if(c1.re==c2.re && c1.im==c2.im)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return (c1.re==c2.re && c1.im==c2.im);
 }
